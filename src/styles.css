@@ -1,4 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+input[type="text"] {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem; /* Ajouter une espace entre les éléments */
+}
+
+.app-product-card {
+    flex-basis: 30%;
+    margin: 10px;
+  }

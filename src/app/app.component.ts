@@ -1,23 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './models/product.model';
-import { Size } from './models/size.model';
-import { ProductsService } from './servivce/products.service';
+import { ProductsService } from './service/products.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: `./app.component.html`,
   styles: []
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   products!: Product[];
   search: string = '';
-  title: string = '';
+  sortOrder: string = 'asc'; // Ordre de tri initial: ascendant
 
   constructor(private productsServices: ProductsService) {}
-  
+
   ngOnInit() {
-    this.search = "";
+    this.search = '';
     this.products = this.productsServices.getAllProducts();
-    this.title = "my HP app"
+  }
+
+  sortProducts() {
+    this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc'; // Alterne entre l'ordre ascendant et descendant
   }
 }

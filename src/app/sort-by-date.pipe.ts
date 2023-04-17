@@ -5,9 +5,11 @@ import { Product } from './models/product.model';
   name: 'sortByDate'
 })
 export class SortByDatePipe implements PipeTransform {
-
-  transform(product: Product[]): Product[]{
-    return product.sort((a,b) => {return b.date.getTime() * a.date.getTime()}); 
+  transform(products: Product[], sortOrder: string): Product[] {
+    if (sortOrder === 'asc') {
+      return products.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    } else {
+      return products.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    }
   }
-
 }

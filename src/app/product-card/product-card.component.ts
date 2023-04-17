@@ -9,7 +9,7 @@ import { Size } from '../models/size.model';
 })
 export class ProductCardComponent {
   @Input() myProduct!: Product;
-  value: number = 3000;
+  value: number = 1500;
 
   SizeSelected(e:any){
     this.value = e.target.value;
